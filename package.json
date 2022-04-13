@@ -7,7 +7,7 @@
   "style": "lib/maplibre-gl-geocoder.css",
   "scripts": {
     "start": "budo debug/index.js --dir debug --live -- -t brfs ",
-    "prepublish": "NODE_ENV=production && mkdir -p dist && browserify --standalone MaplibreGeocoder lib/index.js | uglifyjs -c -m > dist/maplibre-gl-geocoder.min.js && cp lib/maplibre-gl-geocoder.css dist/",
+    "prepublish": "env NODE_ENV=production && mkdir -p dist && browserify --standalone MaplibreGeocoder lib/index.js | uglifyjs -c -m > dist/maplibre-gl-geocoder.min.js && cp lib/maplibre-gl-geocoder.css dist/",
     "test": "browserify -t envify test/index.js | smokestack -b firefox | tap-status | tap-color",
     "docs": "documentation build lib/index.js --format=md > API.md",
     "pretest": "npm run lint",
